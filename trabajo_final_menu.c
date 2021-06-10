@@ -15,27 +15,25 @@ Carrera: Ingeniería en Computación, 1er Semestre
 
 void gotoxy(int x,int y);
 int MENU();
-void MENU_EJERCICIOS();
+int MENU_EJERCICIOS();
 void MENU_CONCEPTOS();
 //funcion principal
 void main(void)
 {
     int opcion;
     opcion=MENU(); //entra al bucle de seleccion, retorna la opcion seleccionada
-    switch (opcion)
-        {
+    switch (opcion){
         case 5:
             MENU_CONCEPTOS();
             break;
 
         case 6:
-            MENU_EJERCICIOS();
+            opcion=MENU_EJERCICIOS();
             break;
 
         default:
             break;
         }
-
     system("cls");
 }
 //menu principal
@@ -98,10 +96,10 @@ void gotoxy(int x,int y){
     SetConsoleCursorPosition(hcon,dwPos);
 }
 //menu de ejercicios
-void MENU_EJERCICIOS(){
+int MENU_EJERCICIOS(){
     bool repetir=true;
     int tecla;
-    int opcion2=5;
+    int opcion=5;
     do
     {
         system("cls");
@@ -127,8 +125,9 @@ void MENU_EJERCICIOS(){
         printf("\t\t18. AGENDA PERSONAL CON ARCHIVO .TXT\n");
         printf("\t\t19. VOCALES, CONSONANTES Y DIGITOS DE UNA CADENA\n");
         printf("\t\t20. ALMACENAR, MOSTRAR Y VACIAR PILA\n");
+        printf("\t\t%c REGRESAR\n",174);
         printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
-        gotoxy(14,opcion2);
+        gotoxy(14,opcion);
         printf("%c",26);
         gotoxy(0,0);
         //Entra en bucle esperando pulsar una tecla
@@ -139,18 +138,18 @@ void MENU_EJERCICIOS(){
         switch (tecla)
         {
         case ARRIBA:
-                opcion2--;
-                if (opcion2==4)
+                opcion--;
+                if (opcion==4)
                 {
-                    opcion2=24;
+                    opcion=25;
                 }
                 
             break;
         case ABAJO:
-                opcion2++;
-                if (opcion2==25)
+                opcion++;
+                if (opcion==26)
                 {
-                    opcion2=5;
+                    opcion=5;
                 }
                 
             break;
@@ -162,6 +161,17 @@ void MENU_EJERCICIOS(){
         }
         
     } while(repetir);
+    switch (opcion)
+    {
+        opcion-=4;
+        case 1:
+        
+            break;
+        
+        default:
+            break;
+    }
+    return opcion;
 }
 
 void MENU_CONCEPTOS(){
