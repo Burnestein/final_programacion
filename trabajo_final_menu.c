@@ -102,32 +102,36 @@ int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax){
 }
 void MENU_EJERCICIOS(){
     bool repetir=true;
-    int fila=5, tecla;
+    int fila=5, tecla, i;
+    char ejercicios[20][50]={
+        "1. BINARIO A DECIMAL",
+        "2. SUMA CONTINUA",
+        "3. POTENCIA DE UN NUMERO",
+        "4. AREA DE UN TRIANGULO",
+        "5. MAYOR DE 3 NUMEROS",
+        "6. SUMA LOS PRIMEROS 20 IMPARES",
+        "7. AREA Y VOLUMEN DE UNA ESFERA",
+        "8. DETERMINAR SI ES PRIMO O NO",
+        "9. EL MAYOR DE 10 DIGITOS",
+        "10. NUMEROS PARES ENTRE 2 Y 100",
+        "11. FACTORIAL DE UN NUMERO",
+        "12. POSITIVO ENTERO ES PRIMO",
+        "13. VALOR MAXIMO DE UN VECTOR DE ENTEROS",
+        "14. GANANCIAS DE LA SEMANA",
+        "15. GANANCIAS DEL MES",
+        "16. ORDENAR DE FORMA ASCENDENTE",
+        "17. AGENDA PERSONAL",
+        "18. AGENDA PERSONAL CON ARCHIVO .TXT",
+        "19. VOCALES, CONSONANTES Y DIGITOS DE UNA CADENA",
+        "20. ALMACENAR, MOSTRAR Y VACIAR PILA"};
     do
     {
         system("cls");
         printf("\n\tMENU DE EJERCICIOS\n\n");
         printf("\tSeleccione una opcion:\n\n");
-        printf("\t\t1. BINARIO A DECIMAL\n");
-        printf("\t\t2. SUMA CONTINUA\n");
-        printf("\t\t3. POTENCIA DE UN NUMERO\n");
-        printf("\t\t4. AREA DE UN TRIANGULO\n");
-        printf("\t\t5. MAYOR DE 3 NUMEROS\n");
-        printf("\t\t6. SUMA LOS PRIMEROS 20 IMPARES\n");
-        printf("\t\t7. AREA Y VOLUMEN DE UNA ESFERA\n");
-        printf("\t\t8. DETERMINAR SI ES PRIMO O NO\n");
-        printf("\t\t9. EL MAYOR DE 10 DIGITOS\n");
-        printf("\t\t10. NUMEROS PARES ENTRE 2 Y 100\n");
-        printf("\t\t11. FACTORIAL DE UN NUMERO\n");
-        printf("\t\t12. POSITIVO ENTERO ES PRIMO\n");
-        printf("\t\t13. VALOR MAXIMO DE UN VECTOR DE ENTEROS\n");
-        printf("\t\t14. GANANCIAS DE LA SEMANA\n");
-        printf("\t\t15. GANANCIAS DEL MES\n");
-        printf("\t\t16. ORDENAR DE FORMA ASCENDENTE\n");
-        printf("\t\t17. AGENDA PERSONAL\n");
-        printf("\t\t18. AGENDA PERSONAL CON ARCHIVO .TXT\n");
-        printf("\t\t19. VOCALES, CONSONANTES Y DIGITOS DE UNA CADENA\n");
-        printf("\t\t20. ALMACENAR, MOSTRAR Y VACIAR PILA\n");
+        for(i=0;i<20;i++){
+            printf("\t\t%s\n",ejercicios+i);
+        };
         printf("\t\t%c REGRESAR\n",174);
         printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
         gotoxy(14,fila); // posicion inicial
@@ -137,28 +141,33 @@ void MENU_EJERCICIOS(){
         if(tecla!=ENTER){
             fila=RESPONDE_TECLA(tecla,fila,5,25);
         } else {
-            fila-=4;
+            fila-=5;
             system("cls");
             switch (fila){
-            case 1:
+            case 0:
+                printf("\n\t%s\n",ejercicios+fila);
                 EJERCICIO_1();
                 break;
-            case 2:
+            case 1:
                 
                 break;
-            case 21:
+            case 20:
                 repetir=false;
                 break;
             default:
                 break;
             }
+            if(fila!=20){
+            printf("\n\tPresione cualquier tecla para regresar...\n");
+            getch();}
+            fila=5; // retorna a la primer fila del menu
         }
     } while(repetir);
 }
 
 void EJERCICIO_1(){
     int num, num2, count, i, res, mult;
-    printf("Escriba Un numero binario\n");
+    printf("\t\tEscriba un numero binario: ");
     scanf("%d", &num);
     num2=num;
     count=0;
@@ -167,11 +176,8 @@ void EJERCICIO_1(){
         num=num/10;
         count=count+1;
     }
-
-    printf("Tiene %d digitos\n",count);
-
     int bin[count];
-
+    printf("\t\tEn binario es: ");
     for(i=0;i<count;i++){
         if(num2 % 10 >0){
             bin[i]=1;
@@ -180,9 +186,9 @@ void EJERCICIO_1(){
             bin[i]=0;
         }
         num2=num2/10;
-        printf("en arreglo es %d\n",bin[i]);
+        printf("%d",bin[i]);
     }
-
+    printf("\n\t\tTiene %d digitos\n",count);
     mult=1;
     res=0;
     for(i=0;i<count;i++){
@@ -192,8 +198,7 @@ void EJERCICIO_1(){
         mult=mult*2;
     }
 
-    printf("El numero en decimal es: %d",res);
-    getchar();
+    printf("\t\tEl numero en decimal es: %d\n",res);
 }
 
 void MENU_CONCEPTOS(){
