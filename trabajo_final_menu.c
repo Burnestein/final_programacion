@@ -21,6 +21,7 @@ void MENU_CONCEPTOS();
 int ESPERAR_TECLA();
 int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax);
 void EJERCICIO_1();
+void EJERCICIO_2();
 //funcion principal
 void main(void)
 {
@@ -143,13 +144,13 @@ void MENU_EJERCICIOS(){
         } else {
             fila-=5;
             system("cls");
+            printf("\n\t%s\n\n",ejercicios+fila);
             switch (fila){
             case 0:
-                printf("\n\t%s\n",ejercicios+fila);
                 EJERCICIO_1();
                 break;
             case 1:
-                
+                EJERCICIO_2();
                 break;
             case 20:
                 repetir=false;
@@ -199,6 +200,20 @@ void EJERCICIO_1(){
     }
 
     printf("\t\tEl numero en decimal es: %d\n",res);
+}
+void EJERCICIO_2(){
+    int sum=0, x;
+    do{
+        printf("\n\t\tPresione 1 para continuar sumando o 0 para obtener el total: ");
+        scanf("%d",&x);
+        if(x==1){
+            printf("\n\t\tIngrese un numero a la suma: ");
+            scanf("%d",&x);
+            sum+=x;
+            x=1;
+        }
+    }while(x!=0);
+    printf("\n\t\tEl total es: %d\n",sum);
 }
 
 void MENU_CONCEPTOS(){
