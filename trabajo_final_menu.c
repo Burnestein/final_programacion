@@ -22,6 +22,7 @@ int ESPERAR_TECLA();
 int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax);
 void EJERCICIO_1();
 void EJERCICIO_2();
+void EJERCICIO_3();
 //funcion principal
 void main(void)
 {
@@ -152,6 +153,9 @@ void MENU_EJERCICIOS(){
             case 1:
                 EJERCICIO_2();
                 break;
+            case 2:
+                EJERCICIO_3();
+                break;
             case 20:
                 repetir=false;
                 break;
@@ -159,7 +163,7 @@ void MENU_EJERCICIOS(){
                 break;
             }
             if(fila!=20){
-            printf("\n\tPresione cualquier tecla para regresar...\n");
+            printf("\n\n\tPresione cualquier tecla para regresar...\n");
             getch();}
             fila=5; // retorna a la primer fila del menu
         }
@@ -211,11 +215,22 @@ void EJERCICIO_2(){
             scanf("%d",&x);
             sum+=x;
             x=1;
-        }
+        } else if(x!=0){printf("\n\t\tOPCION NO VALIDA\n");};
     }while(x!=0);
     printf("\n\t\tEl total es: %d\n",sum);
 }
-
+void EJERCICIO_3(){
+    int num,pot, i;
+    int res=1;
+    printf("\t\tIngrese el numero a sacar potencia: ");
+    scanf("%d",&num);
+    printf("\n\n\t\tIngrese la potencia: ");
+    scanf("%d",&pot);
+    for(i=pot;i>=1;i--){
+        res*=num;
+    }
+    printf("\n\n\t\tEl resultado es: %d",res);
+}
 void MENU_CONCEPTOS(){
 
 }
