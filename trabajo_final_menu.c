@@ -1,6 +1,7 @@
 /*
 PROGRAMACIÓN I
-Alumno: Nemesis J. Sierra Aranda 221404306
+Trabajo Final
+Integrantes: Karmen María Chalita Velázquez, José Eduardo García Ramirez, Nemesis J. Sierra Aranda 
 Profesor: Hugo Adrián Delgado Rodriguez
 Carrera: Ingeniería en Computación, 1er Semestre
 */
