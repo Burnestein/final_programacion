@@ -25,6 +25,11 @@ void EJERCICIO_2();
 void EJERCICIO_3();
 void EJERCICIO_4();
 void EJERCICIO_5();
+void EJERCICIO_6();
+void EJERCICIO_7();
+void EJERCICIO_8();
+void EJERCICIO_9();
+void EJERCICIO_10();
 //funcion principal
 void main(void)
 {
@@ -117,7 +122,7 @@ void MENU_EJERCICIOS(){
         "7. AREA Y VOLUMEN DE UNA ESFERA",
         "8. DETERMINAR SI ES PRIMO O NO",
         "9. EL MAYOR DE 10 DIGITOS",
-        "10. NUMEROS PARES ENTRE 2 Y 100",
+        "10. SUMA DE PARES ENTRE 2 Y 100",
         "11. FACTORIAL DE UN NUMERO",
         "12. POSITIVO ENTERO ES PRIMO",
         "13. VALOR MAXIMO DE UN VECTOR DE ENTEROS",
@@ -165,14 +170,19 @@ void MENU_EJERCICIOS(){
                 EJERCICIO_5();
                 break;
             case 5:
+                EJERCICIO_6();
                 break;
             case 6:
+                EJERCICIO_7();
                 break;
             case 7:
+                EJERCICIO_8();
                 break;
             case 8:
+                EJERCICIO_9();
                 break;
             case 9:
+                EJERCICIO_10();
                 break;
             case 10:
                 break;
@@ -292,6 +302,102 @@ void EJERCICIO_5(){
         mayor=num3;
     }
     printf("\n\t\tEl numero mayor es: %d",mayor);
+}
+void EJERCICIO_6(){
+    int i,res=0,count=1;
+    printf("\t\tNumeros impares: ");
+	for(i=1;i<=20;i++){
+        printf("%d, ",count);
+		res+=count;
+		count+=2;
+	}
+    printf("...");
+	printf("\n\n\t\tLa suma de los 20 primeros numeros impares es: %d",res);
+}
+void EJERCICIO_7(){
+    float rad, area, vol, pi=3.14159265359;
+	printf("\t\tIngrese el valor del radio: ");
+	scanf("%f",&rad);
+	area=4*pi*rad*rad;
+	vol=(area*rad)/3;
+	printf("\n\t\tEl valor del area es: %f",area);
+	printf("\n\t\tEl valor del volumen es: %f",vol);
+}
+void EJERCICIO_8(){
+    int num, div=2, primo=1;
+	printf("\t\tIngrese el numero: ");
+	scanf("%d",&num);
+	if(num>1){
+		while(div<num){
+			if(num%div==0) {
+				printf("\n\t\tEl numero %d NO es primo",num);
+				num=0;
+				primo=0;
+			}
+			div++;
+		}
+		if(primo==1)printf("\n\t\tEl numero %d SI es primo",num);
+	}
+	else printf("\n\t\tEl numero %d NO es primo",num);
+}
+void EJERCICIO_9(){
+    int num, num2, count, i, mayor=0, div=1;
+    printf("\t\tIngrese un numero de maximo diez digitos: ");
+    scanf("%d", &num);
+    num2=num;
+    count=0;
+
+    while(num>0){
+        num=num/10;
+        count=count+1;
+    }
+    //printf("Tiene %d digitos\n",count);
+
+    int resta[count];
+    int digito[count];
+    int unidad[count];
+    int suma;
+    for(i=0;i<count;i++)digito[i]=0;
+    for(i=0;i<count;i++){
+        div*=10;
+    }
+    //printf("el primer divisor es %d\n",div);
+    resta[0]=0;
+    digito[0]=0;
+    unidad[0]=0;
+    suma=0;
+    int div2=div/10;
+
+    for(i=0;i<count;i++){
+        unidad[i+1]=(digito[i]*(div));
+        suma+=unidad[i+1];
+        resta[i+1]=num2-suma;
+        digito[i+1]=resta[i+1]/(div2);
+        div/=10;
+        div2/=10;
+        //printf("la suma es %d\n",suma);
+        //printf("la resta es %d\n",resta[i+1]);
+        //printf("los digitos son %d\n",digito[i+1]);		
+    }
+
+    for(i=0;i<count;i++){
+        if(digito[i]>=digito[i+1]&&digito[i]>mayor){
+            mayor=digito[i];
+        }
+        else if(digito[i+1]>mayor) {
+            mayor=digito[i+1];
+        }
+    }
+    printf("\n\t\tEl digito mayor es: %d",mayor);
+}
+void EJERCICIO_10(){
+	int i,res=0;
+	for(i=2;i<=100;i++){
+		if(i%2==0){
+			res+=i;
+		}
+	}
+	printf("\t\tLa suma de los pares entre 2 y 100 es: %d",res);
 }
 void MENU_CONCEPTOS(){
 
