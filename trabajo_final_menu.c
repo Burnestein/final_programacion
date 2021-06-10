@@ -6,43 +6,31 @@ Profesor: Hugo Adrián Delgado Rodriguez
 Carrera: Ingeniería en Computación, 1er Semestre
 */
 #include <stdio.h>
+#include <string.h>
 #include <stdbool.h>
-#include<stdlib.h>
+#include <stdlib.h>
 #include <windows.h>
 #define ARRIBA 72
 #define ABAJO 80
 #define ENTER 13
 
 void gotoxy(int x,int y);
-int MENU();
+void MENU_PRINCIPAL();
 void MENU_EJERCICIOS();
 void MENU_CONCEPTOS();
+int ESPERAR_TECLA();
+int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax);
+void EJERCICIO_1();
 //funcion principal
 void main(void)
 {
-    int opcion;
-    opcion=MENU(); //entra al bucle de seleccion, retorna la opcion seleccionada
-    switch (opcion)
-        {
-        case 5:
-            MENU_CONCEPTOS();
-            break;
-
-        case 6:
-            MENU_EJERCICIOS();
-            break;
-
-        default:
-            break;
-        }
-
-    system("cls");
+        MENU_PRINCIPAL();
+        system("cls");
 }
 //menu principal
-int MENU(){
+void MENU_PRINCIPAL(){
     bool repetir=true;
-    int opcion=5;
-    int tecla;
+    int fila=5, tecla;
     do
     {
         system("cls");
@@ -52,41 +40,28 @@ int MENU(){
         printf("\t\tEJERCICIOS\n");
         printf("\t\tSALIR\n");
         printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
-        gotoxy(14,opcion); //posiciona el puntero en la posicion inicial
+        gotoxy(14,fila); // posicion inicial
         printf("%c",26); // dibuja la flecha
         gotoxy(0,0);
-        //espera una tecla a ser pulsada
-        do
-        {
-            tecla=getch();
-        } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER); //sale del bucle al presionar una de estas teclas
-        switch (tecla)
-        {
-        case ARRIBA:
-                opcion--; //regresa el puntero una fila arriba
-                if (opcion==4)
-                {
-                    opcion=7;
-                }
-                
-            break;
-        case ABAJO:
-                opcion++; //baja el puntero
-                if (opcion==8)
-                {
-                    opcion=5;
-                }
-                
-            break;
-        case ENTER:
-                repetir=false; // rompe el bucle
-            break;
-        default:
-            break;
+        tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+        if(tecla!=ENTER){
+            fila=RESPONDE_TECLA(tecla,fila,5,7); //mueve la posicion de la fila si no fue ENTER.
+        } else {
+            switch (fila){
+            case 5:
+                MENU_CONCEPTOS();
+                break;
+            case 6:
+                MENU_EJERCICIOS();
+                break;
+            case 7:
+                repetir=false;
+                break;
+            default:
+                break;
+            }
         }
-        
     } while(repetir);
-    return opcion; // retorna la opcion
 }
 //simula la funcion gotoxy que no funciona en la version 5.11 de DEVC++
 void gotoxy(int x,int y){
@@ -97,11 +72,37 @@ void gotoxy(int x,int y){
     dwPos.Y=y;
     SetConsoleCursorPosition(hcon,dwPos);
 }
-//menu de ejercicios
+int ESPERAR_TECLA(){
+    int tecla;
+    do
+        {
+            tecla=getch();
+        } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER); //sale del bucle al presionar una de estas teclas
+    return tecla;
+}
+int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax){
+    switch (opcion)
+        {
+        case ARRIBA:
+                fila--; //regresa la posicion una fila arriba
+                if (fila==filamin-1){
+                    fila=filamax;
+                }
+            break;
+        case ABAJO:
+                fila++; //baja la posicion
+                if (fila==filamax+1){
+                    fila=filamin;
+                }
+            break;
+        default:
+            break;
+        }
+    return fila;
+}
 void MENU_EJERCICIOS(){
     bool repetir=true;
-    int tecla;
-    int opcion2=5;
+    int fila=5, tecla;
     do
     {
         system("cls");
@@ -127,41 +128,72 @@ void MENU_EJERCICIOS(){
         printf("\t\t18. AGENDA PERSONAL CON ARCHIVO .TXT\n");
         printf("\t\t19. VOCALES, CONSONANTES Y DIGITOS DE UNA CADENA\n");
         printf("\t\t20. ALMACENAR, MOSTRAR Y VACIAR PILA\n");
+        printf("\t\t%c REGRESAR\n",174);
         printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
-        gotoxy(14,opcion2);
-        printf("%c",26);
+        gotoxy(14,fila); // posicion inicial
+        printf("%c",26); // dibuja la flecha
         gotoxy(0,0);
-        //Entra en bucle esperando pulsar una tecla
-        do
-        {
-            tecla=getch();
-        } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER);
-        switch (tecla)
-        {
-        case ARRIBA:
-                opcion2--;
-                if (opcion2==4)
-                {
-                    opcion2=24;
-                }
+        tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+        if(tecla!=ENTER){
+            fila=RESPONDE_TECLA(tecla,fila,5,25);
+        } else {
+            fila-=4;
+            system("cls");
+            switch (fila){
+            case 1:
+                EJERCICIO_1();
+                break;
+            case 2:
                 
-            break;
-        case ABAJO:
-                opcion2++;
-                if (opcion2==25)
-                {
-                    opcion2=5;
-                }
-                
-            break;
-        case ENTER:
+                break;
+            case 21:
                 repetir=false;
-            break;
-        default:
-            break;
+                break;
+            default:
+                break;
+            }
         }
-        
     } while(repetir);
+}
+
+void EJERCICIO_1(){
+    int num, num2, count, i, res, mult;
+    printf("Escriba Un numero binario\n");
+    scanf("%d", &num);
+    num2=num;
+    count=0;
+
+    while(num>0){
+        num=num/10;
+        count=count+1;
+    }
+
+    printf("Tiene %d digitos\n",count);
+
+    int bin[count];
+
+    for(i=0;i<count;i++){
+        if(num2 % 10 >0){
+            bin[i]=1;
+        }
+        else{
+            bin[i]=0;
+        }
+        num2=num2/10;
+        printf("en arreglo es %d\n",bin[i]);
+    }
+
+    mult=1;
+    res=0;
+    for(i=0;i<count;i++){
+        if(bin[i]==1){
+            res=res+mult;
+        }
+        mult=mult*2;
+    }
+
+    printf("El numero en decimal es: %d",res);
+    getchar();
 }
 
 void MENU_CONCEPTOS(){
