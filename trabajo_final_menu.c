@@ -20,6 +20,7 @@ void MENU_EJERCICIOS();
 void MENU_CONCEPTOS();
 int ESPERAR_TECLA();
 int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax);
+int maximo(int numero1, int numero2);
 void EJERCICIO_1();
 void EJERCICIO_2();
 void EJERCICIO_3();
@@ -30,6 +31,9 @@ void EJERCICIO_7();
 void EJERCICIO_8();
 void EJERCICIO_9();
 void EJERCICIO_10();
+void EJERCICIO_11();
+void EJERCICIO_12();
+void EJERCICIO_13();
 //funcion principal
 void main(void)
 {
@@ -185,10 +189,13 @@ void MENU_EJERCICIOS(){
                 EJERCICIO_10();
                 break;
             case 10:
+                EJERCICIO_11();
                 break;
             case 11:
+                EJERCICIO_12();
                 break;
             case 12:
+                EJERCICIO_13();
                 break;
             case 13:
                 break;
@@ -217,7 +224,14 @@ void MENU_EJERCICIOS(){
         }
     } while(repetir);
 }
-
+int maximo(int numero1, int numero2){
+		if(numero1>=numero2){
+			return numero1;
+		}
+		else{
+			return numero2;
+		}
+}
 void EJERCICIO_1(){
     int num, num2, count, i, res, mult;
     printf("\t\tEscriba un numero binario: ");
@@ -399,6 +413,49 @@ void EJERCICIO_10(){
 	}
 	printf("\t\tLa suma de los pares entre 2 y 100 es: %d",res);
 }
+void EJERCICIO_11(){
+	int num=0, resultado=0, i=0;
+	printf("\t\tIngrese un numero: ");
+	scanf("%d",&num);
+	resultado=num;
+	for(i=num;i>=2;i--){
+		resultado=resultado*(i-1);
+	}
+	printf("\n\t\tEl factorial es: %d",resultado);
+}
+void EJERCICIO_12(){
+	int num, div=2, primo=1;
+	printf("\t\tIngrese el numero: ");
+	scanf("%d",&num);
+	if(num>1){
+		while(div<num){
+			if(num%div==0) {
+				printf("\n\t\tEl numero %d NO es primo",num);
+				num=0;
+				primo=0;
+			}
+			div++;
+		}
+		if(primo==1)printf("\n\t\tEl numero %d SI es primo",num);
+	}
+	else printf("\n\t\tEl numero %d NO es primo",num);
+}
+void EJERCICIO_13(){
+	int resultado=0, vector[5], i; //declaramos variables
+    for(i=0;i<5;i++){
+        vector[i]=0;
+	}
+	printf("\t\tIngrese los 5 valores del arreglo separados por un espacio: ");
+	for(i=0;i<5;i++){
+        gotoxy(16+i,4);
+		scanf("%d",&vector[i]);
+	}
+	for(i=0;i<5;i++){
+		resultado=maximo(resultado,vector[i]);
+	}
+	printf("\n\t\tEl numero mayor es: %d",resultado);
+}
+
 void MENU_CONCEPTOS(){
 
 }
