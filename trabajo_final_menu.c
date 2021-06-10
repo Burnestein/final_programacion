@@ -23,6 +23,8 @@ int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax);
 void EJERCICIO_1();
 void EJERCICIO_2();
 void EJERCICIO_3();
+void EJERCICIO_4();
+void EJERCICIO_5();
 //funcion principal
 void main(void)
 {
@@ -156,6 +158,42 @@ void MENU_EJERCICIOS(){
             case 2:
                 EJERCICIO_3();
                 break;
+            case 3:
+                EJERCICIO_4();
+                break;
+            case 4:
+                EJERCICIO_5();
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
+            case 11:
+                break;
+            case 12:
+                break;
+            case 13:
+                break;
+            case 14:
+                break;
+            case 15:
+                break;
+            case 16:
+                break;
+            case 17:
+                break;
+            case 18:
+                break;
+            case 19:
+                break;
             case 20:
                 repetir=false;
                 break;
@@ -230,6 +268,30 @@ void EJERCICIO_3(){
         res*=num;
     }
     printf("\n\n\t\tEl resultado es: %d",res);
+}
+void EJERCICIO_4(){
+    float base,altura,res;
+    printf("\t\tIngrese el valor de la base: ");
+    scanf("%f",&base);
+    printf("\n\t\tIngrese el valor de la altura: ");
+    scanf("%f",&altura);
+    res=(base*altura)/2;
+    printf("\n\t\tEl area del triangulo es: %f",res);
+}
+void EJERCICIO_5(){
+    int num1=0, num2=0, num3=0, mayor;
+    printf("\t\tIngrese los tres numeros separados por una coma: ");
+    scanf("%d,%d,%d",&num1,&num2,&num3);
+    if(num1>=num2){
+        mayor=num1;
+    }
+    else{
+        mayor=num2;
+    }
+    if(num3>=mayor){
+        mayor=num3;
+    }
+    printf("\n\t\tEl numero mayor es: %d",mayor);
 }
 void MENU_CONCEPTOS(){
 
