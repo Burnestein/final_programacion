@@ -13,6 +13,7 @@ Carrera: Ingeniería en Computación, 1er Semestre
 #define ARRIBA 72
 #define ABAJO 80
 #define ENTER 13
+#define ESC 27
 
 void gotoxy(int x,int y);
 void MENU_PRINCIPAL();
@@ -34,6 +35,7 @@ void EJERCICIO_10();
 void EJERCICIO_11();
 void EJERCICIO_12();
 void EJERCICIO_13();
+void EJERCICIO_14();
 //funcion principal
 void main(void)
 {
@@ -90,7 +92,7 @@ int ESPERAR_TECLA(){
     do
         {
             tecla=getch();
-        } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER); //sale del bucle al presionar una de estas teclas
+        } while (tecla != ARRIBA && tecla != ABAJO && tecla != ENTER && tecla != ESC); //sale del bucle al presionar una de estas teclas
     return tecla;
 }
 int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax){
@@ -198,6 +200,7 @@ void MENU_EJERCICIOS(){
                 EJERCICIO_13();
                 break;
             case 13:
+                EJERCICIO_14();
                 break;
             case 14:
                 break;
@@ -218,7 +221,7 @@ void MENU_EJERCICIOS(){
                 break;
             }
             if(fila!=20){
-            printf("\n\n\tPresione cualquier tecla para regresar...\n");
+            printf("\n\n\tPresione cualquier tecla para continuar...\n");
             getch();}
             fila=5; // retorna a la primer fila del menu
         }
@@ -455,7 +458,92 @@ void EJERCICIO_13(){
 	}
 	printf("\n\t\tEl numero mayor es: %d",resultado);
 }
-
+void EJERCICIO_14(){
+    float dia[7], total;
+    int i=0, tecla=0, fila=4;
+    bool x=true;
+    for(i=0;i<7;i++){ //inicializa el arreglo en ceros
+        dia[i]=0;
+    }
+    do{
+        system("cls");
+        total=0;
+        for(i=0;i<7;i++){
+            total+=dia[i];
+        }
+        printf("\n\t14. GANANCIAS DE LA SEMANA\n\n");
+        printf("\t\tDia         Ganancias\n");
+        printf("\t\tLunes:      %f\n",dia[0]);
+        printf("\t\tMartes:     %f\n",dia[1]);
+        printf("\t\tMiercoles:  %f\n",dia[2]);
+        printf("\t\tJueves:     %f\n",dia[3]);
+        printf("\t\tViernes:    %f\n",dia[4]);
+        printf("\t\tSabado:     %f\n",dia[5]);
+        printf("\t\tDomingo:    %f\n",dia[6]);
+        printf("\n\t\tTOTAL:	%f\n",total);
+        printf("\n\tUse %c o %c para desplazarse, Enter para seleccionar...\n",30,31);
+        printf("\n\tSALIR pulse ESC");
+        gotoxy(14,fila); // posicion inicial
+        printf("%c",26); // dibuja la flecha
+        gotoxy(0,0);
+        tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+        if(tecla==ARRIBA || tecla==ABAJO){
+            fila=RESPONDE_TECLA(tecla,fila,4,10);
+        } else {
+        if(tecla==ESC){
+            x=false;
+            } else {
+                switch (fila){
+                    case 4:
+                        gotoxy(28,fila);
+                        printf("                    ");
+                        gotoxy(28,fila);
+                        scanf("%f",&dia[0]);
+                    break;
+                    case 5:
+                        gotoxy(28,fila);
+                        printf("                    ");
+                        gotoxy(28,fila);
+                        scanf("%f",&dia[1]);
+                    break;
+                    case 6:
+                        gotoxy(28,fila);
+                        printf("                    ");
+                        gotoxy(28,fila);
+                        scanf("%f",&dia[2]);
+                    break;
+                    case 7:
+                        gotoxy(28,fila);
+                        printf("                    ");
+                        gotoxy(28,fila);
+                        scanf("%f",&dia[3]);
+                    break;
+                    case 8:
+                        gotoxy(28,fila);
+                        printf("                    ");
+                        gotoxy(28,fila);
+                        scanf("%f",&dia[4]);
+                    break;
+                    case 9:
+                        gotoxy(28,fila);
+                        printf("                    ");
+                        gotoxy(28,fila);
+                        scanf("%f",&dia[5]);
+                    break;
+                    case 10:
+                        gotoxy(28,fila);
+                        printf("                    ");
+                        gotoxy(28,fila);
+                        scanf("%f",&dia[6]);
+                    break;
+                    default:
+                    break;
+                }
+            }
+        }
+    } while (x==true);
+    gotoxy(12,15);
+}
 void MENU_CONCEPTOS(){
 
 }
