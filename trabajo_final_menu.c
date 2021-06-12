@@ -22,6 +22,8 @@ void MENU_CONCEPTOS();
 int ESPERAR_TECLA();
 int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax);
 int maximo(int numero1, int numero2);
+float totalsemana(int numsem); //FUNCION DEL EJERCICIO 15
+float semana[4][8]; // VARIABLE GLOBAL DEL EJERCICIO 15
 void EJERCICIO_1();
 void EJERCICIO_2();
 void EJERCICIO_3();
@@ -36,7 +38,8 @@ void EJERCICIO_11();
 void EJERCICIO_12();
 void EJERCICIO_13();
 void EJERCICIO_14();
-//funcion principal
+void EJERCICIO_15();
+
 void main(void)
 {
         MENU_PRINCIPAL();
@@ -203,6 +206,7 @@ void MENU_EJERCICIOS(){
                 EJERCICIO_14();
                 break;
             case 14:
+                EJERCICIO_15();
                 break;
             case 15:
                 break;
@@ -544,6 +548,124 @@ void EJERCICIO_14(){
     } while (x==true);
     gotoxy(12,15);
 }
+
+void EJERCICIO_15(){
+    float totalmes=0, totalsem[4];
+    int menu2, i, j;
+    bool x=true;
+    system("cls");
+    //inicializar array en cero
+        for(i=0;i<4;i++){
+            for(j=0;j<8;j++){
+                semana[i][j]=0;
+            }
+        }
+        for(i=0;i<4;i++){
+            totalsem[i]=0;
+        }
+    while (x==true){
+        totalmes=0;
+        for(i=0;i<4;i++){
+            totalmes+=totalsem[i];
+        }
+        printf("\n\t15. GANANCIAS DEL MES\n\n");
+        printf("\t\tSemana 		Ganancias\n");
+        printf("\t\t1.Semana 1:	%f\n",totalsem[0]);
+        printf("\t\t2.Semana 2:	%f\n",totalsem[1]);
+        printf("\t\t3.Semana 3:	%f\n",totalsem[2]);
+        printf("\t\t4.Semana 4:	%f\n",totalsem[3]);
+        printf("\n\t\tTOTAL MES:	%f\n\n",totalmes);
+        printf("\tSeleccione la semana o presione 0 para salir...\n");
+        scanf("%d",&menu2);
+        switch (menu2){
+            case 1:
+                totalsem[0]=totalsemana(0);
+            break;
+            case 2:
+                totalsem[1]=totalsemana(1);
+            break;
+            case 3:
+                totalsem[2]=totalsemana(2);
+            break;
+            case 4:
+                totalsem[3]=totalsemana(3);
+            break;
+            case 0:
+                x=false;
+            break;
+            default:
+                printf("\t\tOPCION NO VALIDA");
+                getch();
+            break;
+        }
+        system("cls");
+    }
+}
+float totalsemana(int numsem){
+
+	int menu, i, j;
+	bool x=true;
+	
+	while (x==true){
+		system("cls");
+		semana[numsem][7]=0;
+		for(i=0;i<7;i++){
+			semana[numsem][7]+=semana[numsem][i];
+		}
+        printf("\n\t15. GANANCIAS DEL MES\n\n");
+		printf("\t\tGanancias de la Semana %d\n",numsem+1);
+		printf("\t\tDia 		Ganancias\n");
+		printf("\t\t1.Lunes:	%f\n",semana[numsem][0]);
+		printf("\t\t2.Martes:	%f\n",semana[numsem][1]);
+		printf("\t\t3.Miercoles:	%f\n",semana[numsem][2]);
+		printf("\t\t4.Jueves:	%f\n",semana[numsem][3]);
+		printf("\t\t5.Viernes:	%f\n",semana[numsem][4]);
+		printf("\t\t6.Sabado:	%f\n",semana[numsem][5]);
+		printf("\t\t7.Domingo:	%f\n",semana[numsem][6]);
+		printf("\n\t\tTOTAL:	%f\n\n",semana[numsem][7]);
+		printf("\tSeleccione un dia o presione 0 para regresar al menu...\n");
+		scanf("%d",&menu);
+		switch (menu){
+			case 1:
+				printf("Ingrese las ganancias del dia Lunes: $");
+				scanf("%f",&semana[numsem][menu-1]);
+			break;
+			case 2:
+				printf("Ingrese las ganancias del dia Martes: $");
+				scanf("%f",&semana[numsem][menu-1]);
+			break;
+			case 3:
+				printf("Ingrese las ganancias del dia Miercoles: $");
+				scanf("%f",&semana[numsem][menu-1]);
+			break;
+			case 4:
+				printf("Ingrese las ganancias del dia Jueves: $");
+				scanf("%f",&semana[numsem][menu-1]);
+			break;
+			case 5:
+				printf("Ingrese las ganancias del dia Viernes: $");
+				scanf("%f",&semana[numsem][menu-1]);
+			break;
+			case 6:
+				printf("Ingrese las ganancias del dia Sabado: $");
+				scanf("%f",&semana[numsem][menu-1]);
+			break;
+			case 7:
+				printf("Ingrese las ganancias del dia Domingo: $");
+				scanf("%f",&semana[numsem][menu-1]);
+			break;
+			case 0:
+				x=false;
+			break;
+			default:
+				printf("OPCION NO VALIDA");
+				getch();
+			break;
+		}
+	}
+	return semana[numsem][7];
+}
+
 void MENU_CONCEPTOS(){
 
 }
