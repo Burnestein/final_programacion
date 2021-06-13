@@ -551,9 +551,8 @@ void EJERCICIO_14(){
 
 void EJERCICIO_15(){
     float totalmes=0, totalsem[4];
-    int menu2, i, j;
+    int i, j, fila=4, tecla;
     bool x=true;
-    system("cls");
     //inicializar array en cero
         for(i=0;i<4;i++){
             for(j=0;j<8;j++){
@@ -563,7 +562,8 @@ void EJERCICIO_15(){
         for(i=0;i<4;i++){
             totalsem[i]=0;
         }
-    while (x==true){
+    do{
+        system("cls");
         totalmes=0;
         for(i=0;i<4;i++){
             totalmes+=totalsem[i];
@@ -575,38 +575,47 @@ void EJERCICIO_15(){
         printf("\t\t3.Semana 3:	%f\n",totalsem[2]);
         printf("\t\t4.Semana 4:	%f\n",totalsem[3]);
         printf("\n\t\tTOTAL MES:	%f\n\n",totalmes);
-        printf("\tSeleccione la semana o presione 0 para salir...\n");
-        scanf("%d",&menu2);
-        switch (menu2){
-            case 1:
-                totalsem[0]=totalsemana(0);
-            break;
-            case 2:
-                totalsem[1]=totalsemana(1);
-            break;
-            case 3:
-                totalsem[2]=totalsemana(2);
-            break;
-            case 4:
-                totalsem[3]=totalsemana(3);
-            break;
-            case 0:
-                x=false;
-            break;
-            default:
-                printf("\t\tOPCION NO VALIDA");
-                getch();
-            break;
+        //printf("\tSeleccione la semana o presione 0 para salir...\n");
+        //scanf("%d",&menu2);
+        printf("\n\tUse %c o %c para desplazarse, Enter para seleccionar...\n",30,31);
+        printf("\n\tSALIR pulse ESC");
+        gotoxy(14,fila); // posicion inicial
+        printf("%c",26); // dibuja la flecha
+        gotoxy(0,0);
+        tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+        if(tecla==ARRIBA || tecla==ABAJO){
+            fila=RESPONDE_TECLA(tecla,fila,4,7);
+        } else {
+            if(tecla==ESC){
+            x=false;
+            } else {
+                switch (fila){
+                case 4:
+                    totalsem[0]=totalsemana(0);
+                break;
+                case 5:
+                    totalsem[1]=totalsemana(1);
+                break;
+                case 6:
+                    totalsem[2]=totalsemana(2);
+                break;
+                case 7:
+                    totalsem[3]=totalsemana(3);
+                break;
+                default:
+                break;
+                }
+            }
         }
-        system("cls");
-    }
+    } while (x==true);
+    system("cls");
 }
 float totalsemana(int numsem){
 
-	int menu, i, j;
+	int fila=5, i, j, tecla;
 	bool x=true;
 	
-	while (x==true){
+	do{
 		system("cls");
 		semana[numsem][7]=0;
 		for(i=0;i<7;i++){
@@ -623,46 +632,69 @@ float totalsemana(int numsem){
 		printf("\t\t6.Sabado:	%f\n",semana[numsem][5]);
 		printf("\t\t7.Domingo:	%f\n",semana[numsem][6]);
 		printf("\n\t\tTOTAL:	%f\n\n",semana[numsem][7]);
-		printf("\tSeleccione un dia o presione 0 para regresar al menu...\n");
-		scanf("%d",&menu);
-		switch (menu){
-			case 1:
-				printf("Ingrese las ganancias del dia Lunes: $");
-				scanf("%f",&semana[numsem][menu-1]);
-			break;
-			case 2:
-				printf("Ingrese las ganancias del dia Martes: $");
-				scanf("%f",&semana[numsem][menu-1]);
-			break;
-			case 3:
-				printf("Ingrese las ganancias del dia Miercoles: $");
-				scanf("%f",&semana[numsem][menu-1]);
-			break;
-			case 4:
-				printf("Ingrese las ganancias del dia Jueves: $");
-				scanf("%f",&semana[numsem][menu-1]);
-			break;
-			case 5:
-				printf("Ingrese las ganancias del dia Viernes: $");
-				scanf("%f",&semana[numsem][menu-1]);
-			break;
-			case 6:
-				printf("Ingrese las ganancias del dia Sabado: $");
-				scanf("%f",&semana[numsem][menu-1]);
-			break;
-			case 7:
-				printf("Ingrese las ganancias del dia Domingo: $");
-				scanf("%f",&semana[numsem][menu-1]);
-			break;
-			case 0:
-				x=false;
-			break;
-			default:
-				printf("OPCION NO VALIDA");
-				getch();
-			break;
-		}
-	}
+		//printf("\tSeleccione un dia o presione 0 para regresar al menu...\n");
+		//scanf("%d",&menu);
+        printf("\n\tUse %c o %c para desplazarse, Enter para seleccionar...\n",30,31);
+        printf("\n\tREGRESAR pulse ESC");
+        gotoxy(14,fila); // posicion inicial
+        printf("%c",26); // dibuja la flecha
+        gotoxy(0,0);
+        tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+        if(tecla==ARRIBA || tecla==ABAJO){
+            fila=RESPONDE_TECLA(tecla,fila,5,11);
+        } else {
+            if(tecla==ESC){
+            x=false;
+            } else {
+                switch (fila){
+                    case 5:
+                        gotoxy(32,fila);
+                        printf("                    ");
+                        gotoxy(32,fila);
+                        scanf("%f",&semana[numsem][fila-5]);
+                    break;
+                    case 6:
+                        gotoxy(32,fila);
+                        printf("                    ");
+                        gotoxy(32,fila);
+                        scanf("%f",&semana[numsem][fila-5]);
+                    break;
+                    case 7:
+                        gotoxy(32,fila);
+                        printf("                    ");
+                        gotoxy(32,fila);
+                        scanf("%f",&semana[numsem][fila-5]);
+                    break;
+                    case 8:
+                        gotoxy(32,fila);
+                        printf("                    ");
+                        gotoxy(32,fila);
+                        scanf("%f",&semana[numsem][fila-5]);
+                    break;
+                    case 9:
+                        gotoxy(32,fila);
+                        printf("                    ");
+                        gotoxy(32,fila);
+                        scanf("%f",&semana[numsem][fila-5]);
+                    break;
+                    case 10:
+                        gotoxy(32,fila);
+                        printf("                    ");
+                        gotoxy(32,fila);
+                        scanf("%f",&semana[numsem][fila-5]);
+                    break;
+                    case 11:
+                        gotoxy(32,fila);
+                        printf("                    ");
+                        gotoxy(32,fila);
+                        scanf("%f",&semana[numsem][fila-5]);
+                    break;
+                    default:
+                    break;
+                }
+            }
+        }
+	} while (x==true);
 	return semana[numsem][7];
 }
 
