@@ -39,6 +39,7 @@ void EJERCICIO_12();
 void EJERCICIO_13();
 void EJERCICIO_14();
 void EJERCICIO_15();
+void EJERCICIO_16();
 
 void main(void)
 {
@@ -209,6 +210,7 @@ void MENU_EJERCICIOS(){
                 EJERCICIO_15();
                 break;
             case 15:
+                EJERCICIO_16();
                 break;
             case 16:
                 break;
@@ -697,7 +699,36 @@ float totalsemana(int numsem){
 	} while (x==true);
 	return semana[numsem][7];
 }
-
+void EJERCICIO_16(){
+	int i, j, max, number, pos, temp, numbers[10];
+	/* llenar el arreglo con 10 numeros */
+	for (i=0;i<10;i++) {
+		printf("\t\tIngrese el numero %i de 10: ",i+1);
+		scanf("%i",&number);
+		numbers[i] = number;
+	}
+	printf("\n\t\tEl arreglo es: ");
+	for (i=0;i<10;i++) {
+		printf("%i, ",numbers[i]);
+	}
+	/* cual es el valor maximo de los 10 numeros, 9 nums.. etc */
+	for (j=9;j>=0;j--) {
+		max = 0;
+		for (i=0;i<=j;i++) {
+			if (numbers[i]>max) {
+				max = numbers[i];
+				pos = i;
+			}
+		}
+		temp = numbers[j];
+		numbers[j] = max;
+		numbers[pos] = temp;
+	}
+	printf("\n\n\t\tEs arreglo ascendente es: ");
+	for (i=0;i<10;i++) {
+		printf("%i, ",numbers[i]);
+	}
+}
 void MENU_CONCEPTOS(){
 
 }
