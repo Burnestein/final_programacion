@@ -15,6 +15,15 @@ Carrera: Ingeniería en Computación, 1er Semestre
 #define ENTER 13
 #define ESC 27
 
+struct persona{ // ESTRUCTURA DEL EJERCICIO 17
+	char nombre[30];
+	char direccion[100];
+	unsigned int telefono;
+	char email[20];
+	char oficio[20];
+};
+void visualizar(struct persona *);
+
 void gotoxy(int x,int y);
 void MENU_PRINCIPAL();
 void MENU_EJERCICIOS();
@@ -40,6 +49,7 @@ void EJERCICIO_13();
 void EJERCICIO_14();
 void EJERCICIO_15();
 void EJERCICIO_16();
+void EJERCICIO_17();
 
 void main(void)
 {
@@ -213,6 +223,7 @@ void MENU_EJERCICIOS(){
                 EJERCICIO_16();
                 break;
             case 16:
+                EJERCICIO_17();
                 break;
             case 17:
                 break;
@@ -728,6 +739,126 @@ void EJERCICIO_16(){
 	for (i=0;i<10;i++) {
 		printf("%i, ",numbers[i]);
 	}
+}
+void EJERCICIO_17(){
+	struct persona datos[20];
+	int select=0, salir=0, salir2=0, number=0, fila=5, tecla, i;
+	char x;
+	do{
+        system("cls");
+        printf("\n\t17. AGENDA PERSONAL\n\n");
+        printf("\tSeleccione una opcion:\n\n");
+        printf("\t\tAGREGAR PERSONA\n");
+        printf("\t\tLEER DATOS\n");
+        printf("\t\tSALIR\n");
+        printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
+        gotoxy(14,fila); // posicion inicial
+        printf("%c",26); // dibuja la flecha
+        gotoxy(0,0);
+        tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+        if(tecla!=ENTER){
+            fila=RESPONDE_TECLA(tecla,fila,5,7); //mueve la posicion de la fila si no fue ENTER.
+        } else {
+            switch (fila){
+            case 5:
+                fila=4;
+                do{
+                    system("cls");
+                    printf("\n\t17. AGENDA PERSONAL\n\n");
+                    printf("\t\tEditar Contacto:\n");
+                    for(i=0;i<20;i++){
+                        printf("\t\t%i. Nombre: %s\n",i+1,datos[i].nombre);
+                    }
+                    printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
+                    printf("\n\tREGRESAR pulse ESC");
+                    gotoxy(14,fila); // posicion inicial
+                    printf("%c",26); // dibuja la flecha
+                    gotoxy(0,0);
+                    tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+                    if(tecla==ARRIBA || tecla==ABAJO){
+                        fila=RESPONDE_TECLA(tecla,fila,4,23); //mueve la posicion de la fila si no fue ENTER.
+                    } else {
+                        if (tecla==ESC){
+                            salir2=1;
+                        } else {
+                        system("cls");
+                        printf("\n\t17. AGENDA PERSONAL\n\n");
+                        printf("\t\tEditar Contacto:\n");
+                        printf("\n\t\tNombre: ");
+                        fflush(stdin);
+                        scanf("%[^\n]",datos[fila-4].nombre);
+                        printf("\n\t\tdireccion: ");
+                        fflush(stdin);
+                        scanf("%[^\n]",datos[fila-4].direccion);
+                        printf("\n\t\ttelefono: ");
+                        fflush(stdin);
+                        scanf("%u",&datos[fila-4].telefono);
+                        printf("\n\t\temail: ");
+                        fflush(stdin);
+                        scanf("%s",datos[fila-4].email);
+                        printf("\n\t\toficio: ");
+                        fflush(stdin);
+                        scanf("%[^\n]",datos[fila-4].oficio);
+                        printf("\n\t\tDatos Guardados\n");
+                        getch();
+                        }
+                    }
+                } while (salir2==0);
+                salir2=0;
+                break;
+            case 6:
+                fila=4;
+                do{
+                    system("cls");
+                    printf("\n\t17. AGENDA PERSONAL\n\n");
+                    printf("\t\tLeer Contacto:\n");
+                    for(i=0;i<20;i++){
+                        printf("\t\t%i. Nombre: %s\n",i+1,datos[i].nombre);
+                    }
+                    printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
+                    printf("\n\tREGRESAR pulse ESC");
+                    gotoxy(14,fila); // posicion inicial
+                    printf("%c",26); // dibuja la flecha
+                    gotoxy(0,0);
+                    tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+                    if(tecla==ARRIBA || tecla==ABAJO){
+                        fila=RESPONDE_TECLA(tecla,fila,4,23); //mueve la posicion de la fila si no fue ENTER.
+                    } else {
+                        if (tecla==ESC){
+                            salir2=1;
+                        } else {
+                        system("cls");
+                        printf("\n\t17. AGENDA PERSONAL\n\n");
+                        printf("\t\tLeer Contacto:\n");
+                        visualizar(&datos[fila-4]);
+                        getch();
+                        }
+                    }
+                } while (salir2==0);
+                salir2=0;
+                /*printf("Que espacio de la agenda desea leer? Seleccione un numero...\n");
+                fflush(stdin);
+                scanf("%d",&number);
+                visualizar(&datos[number-1]);*/
+                break;
+            case 7:
+                salir=1;
+                break;
+            default:
+                break;
+            }
+            fila=5;
+        }
+	} while(salir==0);
+    system("cls");
+}
+void visualizar(struct persona *datos)
+{
+	printf("\n\t\tNombre: %s",datos->nombre);
+	printf("\n\t\tdireccion: %s",datos->direccion);
+	printf("\n\t\ttelefono: %u",datos->telefono);
+	printf("\n\t\temail: %s",datos->email);
+	printf("\n\t\toficio: %s",datos->oficio);
 }
 void MENU_CONCEPTOS(){
 
