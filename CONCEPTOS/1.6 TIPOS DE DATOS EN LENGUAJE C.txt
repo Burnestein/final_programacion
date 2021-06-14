@@ -1,0 +1,7 @@
+Tipos de Datos en Lenguaje C
+
+Tipo	Tamaño	Rango de valores
+Char	1 byte		-128 a 127
+Int	2 bytes		-32768 a 32767
+Float	4 bytes		3'4 E-38 a 3'4 E+38
+Double	8 bytes		1'7 E-308 a 1'7 E+308

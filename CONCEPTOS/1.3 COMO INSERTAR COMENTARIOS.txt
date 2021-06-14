@@ -1,0 +1,5 @@
+Cómo insertar comentarios.
+
+Para poner comentarios en un programa escrito en Lenguaje C, usamos los símbolos /* y */ 
+El símbolo /* se coloca al principio del comentario y el símbolo */ al final para cerrar
+ el comentario.

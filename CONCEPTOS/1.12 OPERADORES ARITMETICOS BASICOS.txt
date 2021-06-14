@@ -1,0 +1,10 @@
+Operadores Aritméticos básicos
+
+Los operadores comunes son: la suma, resta, multiplicación y división, pero también existen los unarios, 
+de asignación y su jerarquía.
+
+Existen dos tipos de operadores aritméticos:
+
+1.	OPERADORES BINARIOS: Suma, Resta, Multiplicación, División y Módulo.
+
+2.	OPERADORES UNARIOS: Operación, Incremento (suma 1), Decremento (resta 1) y Cambio de signo.

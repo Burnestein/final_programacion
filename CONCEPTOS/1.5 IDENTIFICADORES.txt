@@ -1,0 +1,5 @@
+Identificadores
+
+Un identificador está formado por letras en mayúsculas o minúsculas, guion bajo y dígitos. 
+Como restricción el primer carácter tiene que ser una letra. Un identificador es el nombre 
+que damos a las variables y funciones. 

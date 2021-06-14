@@ -1,0 +1,6 @@
+Estructuras y Uniones en C
+
+Una estructura es una colección de elementos finita y heterogénea. 
+Se utilizan para resolver problemas que involucran tipos de datos estructurados. 
+Una estructura es un conjunto de una o más variables, de distinto tipo, agrupadas 
+bajo un mismo nombre para que su manejo sea más sencillo.

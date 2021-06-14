@@ -1,0 +1,14 @@
+Operadores relacionales <, >, ==, !=
+
+Se llaman operadores relacionales o de comparación aquellos que permiten comparar 
+dos valores evaluando si es menor, mayor o igual uno que otro, etc. 
+Los operadores relacionales se utilizan para comparar el contenido de dos variables.
+En C existen seis operadores relacionales básicos:
+
+Signo	Operación
+<	Menor que
+>	Mayor que
+<=	Menor o igual que
+>=	Mayor o igual que
+==	Igual a
+!=	Distinto de

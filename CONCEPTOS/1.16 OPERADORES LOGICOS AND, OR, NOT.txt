@@ -1,0 +1,13 @@
+Operadores lógicos AND &&, OR ||, Not !
+
+Las expresiones conectadas con los operadores se evalúan de izquierda a derecha y 
+la evaluación se detiene cuando el resultado es verdadero o falso. 
+Estos operadores actúan sobre expresiones lógicas. Permiten unir expresiones 
+lógicas simples formando otras más complejas.
+
+Los operadores lógicos básicos son tres:
+
+Signo	Operación
+&&	AND
+||	OR
+!	NOT (negación, el valor contrario)
