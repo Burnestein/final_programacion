@@ -50,6 +50,7 @@ void EJERCICIO_14();
 void EJERCICIO_15();
 void EJERCICIO_16();
 void EJERCICIO_17();
+void EJERCICIO_18();
 
 void main(void)
 {
@@ -226,6 +227,7 @@ void MENU_EJERCICIOS(){
                 EJERCICIO_17();
                 break;
             case 17:
+                EJERCICIO_18();
                 break;
             case 18:
                 break;
@@ -750,7 +752,7 @@ void EJERCICIO_17(){
         printf("\tSeleccione una opcion:\n\n");
         printf("\t\tAGREGAR PERSONA\n");
         printf("\t\tLEER DATOS\n");
-        printf("\t\tSALIR\n");
+        printf("\t\tSALIR AL MENU PRINCIPAL\n");
         printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
         gotoxy(14,fila); // posicion inicial
         printf("%c",26); // dibuja la flecha
@@ -859,6 +861,83 @@ void visualizar(struct persona *datos)
 	printf("\n\t\ttelefono: %u",datos->telefono);
 	printf("\n\t\temail: %s",datos->email);
 	printf("\n\t\toficio: %s",datos->oficio);
+}
+void EJERCICIO_18(){
+    FILE *archivo;
+	char nombre[30], direccion[100],email[20], oficio[20], c;
+	unsigned int telefono;
+	int fila=5, salir=0, number=0, tecla;
+	do{
+	    system("cls");
+        printf("\n\t18. AGENDA PERSONAL CON ARCHIVO .TXT\n\n");
+        printf("\tSeleccione una opcion:\n\n");
+        printf("\t\tAGREGAR PERSONA\n");
+        printf("\t\tLEER DATOS\n");
+        printf("\t\tSALIR AL MENU PRINCIPAL\n");
+        printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
+        gotoxy(14,fila); // posicion inicial
+        printf("%c",26); // dibuja la flecha
+        gotoxy(0,0);
+        tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+        if(tecla!=ENTER){
+            fila=RESPONDE_TECLA(tecla,fila,5,7); //mueve la posicion de la fila si no fue ENTER.
+        } else {
+            switch (fila){
+                case 5:
+                    system("cls");
+                    printf("\n\t18. AGENDA PERSONAL CON ARCHIVO .TXT\n\n");
+                    printf("\t\tAgregar Contacto:\n");
+                    printf("\n\t\tNombre: ");
+                    fflush(stdin);
+                    scanf("%[^\n]",nombre);
+                    printf("\n\t\tdireccion: ");
+                    fflush(stdin);
+                    scanf("%[^\n]",direccion);
+                    printf("\n\t\ttelefono: ");
+                    fflush(stdin);
+                    scanf("%u",&telefono);
+                    printf("\n\t\temail: ");
+                    fflush(stdin);
+                    scanf("%s",email);
+                    printf("\n\t\toficio: ");
+                    fflush(stdin);
+                    scanf("%[^\n]",oficio);
+                    
+                    archivo=fopen("archivo.txt","a");
+                    fseek(archivo, 0, SEEK_END);
+                    fprintf (archivo, "\n\t\tNombre:%s\n\t\tDireccion:%s\n\t\tTelefono:%u\n\t\temail:%s\n\t\tOficio:%s\n\n", nombre, direccion, telefono, email, oficio);
+                    printf("\n\t\tDatos Guardados\n");
+                    fclose(archivo);
+                    getch();
+                break;
+                case 6:
+                    system("cls");
+                    printf("\n\t18. AGENDA PERSONAL CON ARCHIVO .TXT\n\n");
+                    archivo=fopen("archivo.txt","r");
+                    if(archivo==NULL){
+                        printf("\t\tError en la apertura del archivo");
+                    }
+                    else {
+                        printf("\n\t\tEl contenido del archivo es:\n\n");
+                        while(feof(archivo)==0) {
+                                //feof comprueba el indicador al final del archivo
+                            c=fgetc(archivo); //fgetc obtiene un solo caracter
+                            printf("%c",c);
+                        }
+                    }
+                    printf("\n");
+                    fclose(archivo);
+                    getch();
+                    break;
+                case 7:
+                    salir=1;
+                    break;
+                default:
+                    break;
+	        }
+        }	
+	} while(salir==0);
+    system("cls");
 }
 void MENU_CONCEPTOS(){
 
