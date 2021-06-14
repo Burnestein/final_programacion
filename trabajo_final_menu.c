@@ -10,6 +10,7 @@ Carrera: Ingeniería en Computación, 1er Semestre
 #include <stdbool.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <conio.h>
 #define ARRIBA 72
 #define ABAJO 80
 #define ENTER 13
@@ -47,6 +48,14 @@ struct cantidades vocales(char cadena[20]){ // EJERCICIO 19
 	return s;
 }
 
+struct pila { // ESTRUCTURA EL EJERCICIO 20
+	int numero;
+	struct pila *ant;
+}*CAB=NULL,*AUX=NULL;
+void agregar(); // FUNCIONES
+void mostrar(); // DEL
+void vaciar(); // EJERCICIO 20
+
 void gotoxy(int x,int y);
 void MENU_PRINCIPAL();
 void MENU_EJERCICIOS();
@@ -75,6 +84,7 @@ void EJERCICIO_16();
 void EJERCICIO_17();
 void EJERCICIO_18();
 void EJERCICIO_19();
+void EJERCICIO_20();
 
 void main(void)
 {
@@ -257,6 +267,7 @@ void MENU_EJERCICIOS(){
                 EJERCICIO_19();
                 break;
             case 19:
+                EJERCICIO_20();
                 break;
             case 20:
                 repetir=false;
@@ -971,6 +982,85 @@ void EJERCICIO_19(){
 	scanf("%s",palabra);
 	struct cantidades s=vocales(palabra);
 	printf("\n\t\tLa palabra %s tiene %d vocales, %d consonantes y %d caracteres\n",palabra,s.vocales,s.consonantes, s.digitos);
+}
+void EJERCICIO_20(){
+    int fila=5, tecla;
+    bool salir=false;
+	do{
+        system("cls");
+        printf("\n\t20. ALMACENAR, MOSTRAR Y VACIAR PILA\n\n");
+        printf("\t\tPILA DE NUMEROS\n");
+	    printf("\n\t\tMostrar pila\n\t\tAgregar numero\n\t\tVaciar Pila\n\t\tSalir al menu\n");
+	    printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
+        gotoxy(14,fila); // posicion inicial
+        printf("%c",26); // dibuja la flecha
+        gotoxy(0,0);
+        tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+        if(tecla!=ENTER){
+            fila=RESPONDE_TECLA(tecla,fila,5,8); //mueve la posicion de la fila si no fue ENTER.
+        } else {
+            system("cls");
+            switch(fila){
+                case 5:
+                    mostrar();
+                break;
+                case 6:
+                    agregar();
+                break;
+                case 7:
+                    vaciar();
+                break;
+                case 8:
+                    salir=true;
+                break;
+                default:
+                break;
+		    }
+        }
+	} while(salir==false);
+    system("cls");
+}
+void agregar(){
+	AUX=(struct pila *)malloc(sizeof(struct pila));
+	printf("\n\t\tIntroduce el nuevo numero: ");
+	scanf("%d",&AUX->numero);
+	if (CAB==NULL)
+	{
+		CAB=AUX;
+		AUX->ant=NULL;
+	}
+	else
+	{
+		AUX->ant=CAB;
+		CAB=AUX;
+	}
+	printf("\n\t\tEl numero fue introducido a la pila\n\n");
+    getch();
+}
+void mostrar(){
+	if (CAB==NULL){
+		printf("\n\t\tNo hay datos para mostrar\n\n");
+		return;
+	}
+		AUX=CAB;
+        printf("\n\t\tPILA: ");
+		while (AUX!=NULL)
+		{
+			printf("%d ",AUX->numero);
+			AUX=AUX->ant;
+		}
+        getch();
+}
+void vaciar(){
+	if (CAB==NULL){
+		printf("\n\t\tNo hay datos para vaciar\n\n");
+		return;
+	}
+		AUX=CAB;
+		CAB=CAB->ant;
+		free(AUX);
+		printf("\n\t\tEl ultimo dato ha sido vaciado\n\n");
+        getch();
 }
 void MENU_CONCEPTOS(){
 
