@@ -24,6 +24,29 @@ struct persona{ // ESTRUCTURA DEL EJERCICIO 17
 };
 void visualizar(struct persona *);
 
+struct cantidades { //ESTTRUCTURAS DEL EJERCICIO 19
+	int vocales, consonantes, digitos;
+};
+struct cantidades vocales(char cadena[20]){ // EJERCICIO 19
+	int vocal=0, consonante=0, digito=0;
+	int i;
+	char c;
+	digito = strlen(cadena);
+	for(i=0;i<digito;i++){
+		c=cadena[i];
+		if((c=='a'||c=='e'||c=='i'||c=='o'||c=='u')||(c=='A'||c=='E'||c=='I'||c=='O'||c=='U')){
+			vocal++;
+			//printf("%c\n",cadena[i]);
+		} else {
+			consonante++;
+		}	
+	}
+	struct cantidades s = {vocal, consonante, digito};
+	//printf("vocales: %d",vocal);
+	//printf("consonantes: %d",consonante);
+	return s;
+}
+
 void gotoxy(int x,int y);
 void MENU_PRINCIPAL();
 void MENU_EJERCICIOS();
@@ -51,6 +74,7 @@ void EJERCICIO_15();
 void EJERCICIO_16();
 void EJERCICIO_17();
 void EJERCICIO_18();
+void EJERCICIO_19();
 
 void main(void)
 {
@@ -230,6 +254,7 @@ void MENU_EJERCICIOS(){
                 EJERCICIO_18();
                 break;
             case 18:
+                EJERCICIO_19();
                 break;
             case 19:
                 break;
@@ -938,6 +963,14 @@ void EJERCICIO_18(){
         }	
 	} while(salir==0);
     system("cls");
+}
+void EJERCICIO_19(){
+    char palabra[20];
+	int v,c;
+	printf("\n\t\tIngrese una palabra: ");
+	scanf("%s",palabra);
+	struct cantidades s=vocales(palabra);
+	printf("\n\t\tLa palabra %s tiene %d vocales, %d consonantes y %d caracteres\n",palabra,s.vocales,s.consonantes, s.digitos);
 }
 void MENU_CONCEPTOS(){
 
