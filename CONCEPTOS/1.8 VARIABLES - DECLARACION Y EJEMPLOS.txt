@@ -1,0 +1,23 @@
+Variables en Lenguaje Declaración y ejemplos
+
+Una variable es un tipo de dato, referenciado mediante un identificador (que es el nombre de la variable). 
+Su contenido podrá ser modificado a lo largo del programa.
+Las variables pueden ser de dos tipos según el lugar en que las declaremos: globales o locales.
+
+1.	La variable global se declara antes de la main(). Puede ser utilizada en cualquier parte del 
+programa y se destruye al finalizar éste.
+
+2.	La variable local se declara después de la main(), en la función en que vaya a ser utilizada. 
+Sólo existe dentro de la función en que se declara y se destruye al finalizar dicha función.
+
+Ejemplo
+	/* Uso de las variables */
+	#include <stdio.h>
+	main() /* Suma dos valores */
+	{
+		int num1=4,num2,num3=6;
+		printf("El valor de num1 es %d",num1);
+		printf("\nEl valor de num3 es %d",num3);
+		num2=num1+num3;
+		printf("\nnum1 + num3 = %d",num2);
+	}

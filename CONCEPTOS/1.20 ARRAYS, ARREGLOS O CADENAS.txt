@@ -1,0 +1,9 @@
+Arrays, arreglos, cadenas
+
+Los arrays son variables estructuradas como cadena de caracteres, donde cada elemento se 
+almacena de forma consecutiva en un número de notaciones.
+Un array es un identificador que referencia un conjunto de datos del mismo tipo. 
+Imagina un tipo de dato int; podremos crear un conjunto de datos de ese tipo y utilizar 
+uno u otro con sólo cambiar el índice que lo referencia. 
+El índice será un valor entero y positivo. 
+En C los arrays comienzan por la posición 0.

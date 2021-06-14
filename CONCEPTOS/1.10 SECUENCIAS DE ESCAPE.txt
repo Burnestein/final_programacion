@@ -1,0 +1,6 @@
+Secuencias de escape
+
+Las secuencias de escape se utilizan para definir ciertos caracteres especiales 
+dentro de cadenas de texto. 
+Ciertos caracteres no representados gráficamente se pueden representar mediante 
+lo que se conoce como secuencia de escape.

@@ -1,0 +1,4 @@
+Funciones Printf y Scanf
+
+printf() y scanf() son funciones de lenguaje C que nos permitirán imprimir 
+datos en pantalla o por el contrario, obtener datos a través del teclado.

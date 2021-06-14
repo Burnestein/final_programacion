@@ -1,0 +1,4 @@
+Archivos de texto fopen (), fclose()
+
+Para la manipulación de archivos se utilizan las funciones fopen(), fclose(), freopen() 
+y los operadores w, w+, a, a+, r y r+ para su modo de uso.

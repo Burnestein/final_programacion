@@ -1,0 +1,4 @@
+Palabras reservadas
+
+Las palabras reservadas son identificadores predefinidos que tienen un significado especial y 
+no se pueden utilizar como sintaxis en sus programas.

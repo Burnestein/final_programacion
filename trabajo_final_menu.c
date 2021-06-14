@@ -11,6 +11,7 @@ Carrera: Ingeniería en Computación, 1er Semestre
 #include <stdlib.h>
 #include <windows.h>
 #include <conio.h>
+#include <locale.h>
 #define ARRIBA 72
 #define ABAJO 80
 #define ENTER 13
@@ -56,6 +57,8 @@ void agregar(); // FUNCIONES
 void mostrar(); // DEL
 void vaciar(); // EJERCICIO 20
 
+void ABRIR_ARCHIVO(char titulo[50]);
+
 void gotoxy(int x,int y);
 void MENU_PRINCIPAL();
 void MENU_EJERCICIOS();
@@ -86,11 +89,62 @@ void EJERCICIO_18();
 void EJERCICIO_19();
 void EJERCICIO_20();
 
-void main(void)
-{
-        MENU_PRINCIPAL();
-        system("cls");
+FILE *archivo;
+
+void main(void){
+    setlocale(LC_CTYPE,"Spanish");
+    MENU_PRINCIPAL();
+    system("cls");
 }
+
+char conceptos[25][50]={
+        "1.1 LENGUAGE DE PROGRAMACION C",
+        "1.2 ESTRUCTURA GENERAL DE UN PROGRAMA",
+        "1.3 COMO INSERTAR COMENTARIOS",
+        "1.4 PALABRAS RESERVADAS",
+        "1.5 IDENTIFICADORES",
+        "1.6 TIPOS DE DATOS EN LENGUAJE C",
+        "1.7 CALIFICADORES DE DATOS",
+        "1.8 VARIABLES - DECLARACION Y EJEMPLOS",
+        "1.9 CONSTANTES - DIRECTIVA #DEFINE",
+        "1.10 SECUENCIAS DE ESCAPE",
+        "1.11 INCLUSION DE ARCHIVOS #INCLUDE",
+        "1.12 OPERADORES ARITMETICOS BASICOS",
+        "1.13 FUNCIONES printf() Y scanf()",
+        "1.14 OPERADORES RELACIONALES",
+        "1.15 CONDICIONALES IF, ELSEIF Y SWITCH",
+        "1.16 OPERADORES LOGICOS AND, OR, NOT",
+        "1.17 BUCLES WHILE, DO WHILE Y FOR",
+        "1.18 VARIABLES LOCALES Y GLOBALES EN C",
+        "1.19 FUNCIONES EN C",
+        "1.20 ARRAYS, ARREGLOS O CADENAS",
+        "1.21 MATRIZ BIDIMENSIONAL",
+        "1.22 PUNTEROS QUE SON",
+        "1.23 ESTRUCTURAS Y UNIONES EN C",
+        "1.24 ARCHIVOS DE TEXTO fopen(), fclose()",
+        "1.25 PILAS, COLAS, LISTAS"};
+char ejercicios[20][50]={
+        "1. BINARIO A DECIMAL",
+        "2. SUMA CONTINUA",
+        "3. POTENCIA DE UN NUMERO",
+        "4. AREA DE UN TRIANGULO",
+        "5. MAYOR DE 3 NUMEROS",
+        "6. SUMA LOS PRIMEROS 20 IMPARES",
+        "7. AREA Y VOLUMEN DE UNA ESFERA",
+        "8. DETERMINAR SI ES PRIMO O NO",
+        "9. EL MAYOR DE 10 DIGITOS",
+        "10. SUMA DE PARES ENTRE 2 Y 100",
+        "11. FACTORIAL DE UN NUMERO",
+        "12. POSITIVO ENTERO ES PRIMO",
+        "13. VALOR MAXIMO DE UN VECTOR DE ENTEROS",
+        "14. GANANCIAS DE LA SEMANA",
+        "15. GANANCIAS DEL MES",
+        "16. ORDENAR DE FORMA ASCENDENTE",
+        "17. AGENDA PERSONAL",
+        "18. AGENDA PERSONAL CON ARCHIVO .TXT",
+        "19. VOCALES, CONSONANTES Y DIGITOS DE UNA CADENA",
+        "20. ALMACENAR, MOSTRAR Y VACIAR PILA"};
+
 //menu principal
 void MENU_PRINCIPAL(){
     bool repetir=true;
@@ -167,27 +221,6 @@ int RESPONDE_TECLA(int opcion,int fila, int filamin, int filamax){
 void MENU_EJERCICIOS(){
     bool repetir=true;
     int fila=5, tecla, i;
-    char ejercicios[20][50]={
-        "1. BINARIO A DECIMAL",
-        "2. SUMA CONTINUA",
-        "3. POTENCIA DE UN NUMERO",
-        "4. AREA DE UN TRIANGULO",
-        "5. MAYOR DE 3 NUMEROS",
-        "6. SUMA LOS PRIMEROS 20 IMPARES",
-        "7. AREA Y VOLUMEN DE UNA ESFERA",
-        "8. DETERMINAR SI ES PRIMO O NO",
-        "9. EL MAYOR DE 10 DIGITOS",
-        "10. SUMA DE PARES ENTRE 2 Y 100",
-        "11. FACTORIAL DE UN NUMERO",
-        "12. POSITIVO ENTERO ES PRIMO",
-        "13. VALOR MAXIMO DE UN VECTOR DE ENTEROS",
-        "14. GANANCIAS DE LA SEMANA",
-        "15. GANANCIAS DEL MES",
-        "16. ORDENAR DE FORMA ASCENDENTE",
-        "17. AGENDA PERSONAL",
-        "18. AGENDA PERSONAL CON ARCHIVO .TXT",
-        "19. VOCALES, CONSONANTES Y DIGITOS DE UNA CADENA",
-        "20. ALMACENAR, MOSTRAR Y VACIAR PILA"};
     do
     {
         system("cls");
@@ -1068,32 +1101,8 @@ void vaciar(){
 void MENU_CONCEPTOS(){
     bool repetir=true;
     int fila=5, tecla, i;
-    char conceptos[25][50]={
-        "1.1 LENGUAGE DE PROGRAMACION C",
-        "1.2 ESTRUCTURA GENERAL DE UN PROGRAMA",
-        "1.3 COMO INSERTAR COMENTARIOS",
-        "1.4 PALABRAS RESERVADAS",
-        "1.5 IDENTIFICADORES",
-        "1.6 TIPOS DE DATOS EN LENGUAJE C",
-        "1.7 CALIFICADORES DE DATOS",
-        "1.8 VARIABLES - DECLARACION Y EJEMPLOS",
-        "1.9 CONSTANTES - DIRECTIVA #DEFINE",
-        "1.10 SECUENCIAS DE ESCAPE",
-        "1.11 INCLUSION DE ARCHIVOS #INCLUDE",
-        "1.12 OPERADORES ARITMETICOS BASICOS",
-        "1.13 FUNCIONES printf() Y scanf()",
-        "1.14 OPERADORES RELACIONALES <, >, ==",
-        "1.15 CONDICIONALES IF, ELSEIF Y SWITCH",
-        "1.16 OPERADORES LOGICOS AND, OR, NOT",
-        "1.17 BUCLES WHILE, DO WHILE Y FOR",
-        "1.18 VARIABLES LOCALES Y GLOBALES EN C",
-        "1.19 FUNCIONES EN C",
-        "1.20 ARRAYS, ARREGLOS O CADENAS",
-        "1.21 MATRIZ BIDIMENSIONAL",
-        "1.22 PUNTEROS ¿QUE SON?",
-        "1.23 ESTRUCTURAS Y UNIONES EN C",
-        "1.24 ARCHIVOS DE TEXTO fopen(), fclose()",
-        "1.25 PILAS, COLAS, LISTAS"};
+    char c;
+    char dir[50];
     do
     {
         system("cls");
@@ -1116,77 +1125,40 @@ void MENU_CONCEPTOS(){
                 fila-=5;
                 system("cls");
                 printf("\n\t%s\n\n",conceptos+fila);
-                switch (fila){
-                case 0:
-
-                    break;
-                case 1:
-
-                    break;
-                case 2:
-
-                    break;
-                case 3:
-     
-                    break;
-                case 4:
-
-                    break;
-                case 5:
-
-                    break;
-                case 6:
-
-                    break;
-                case 7:
-
-                    break;
-                case 8:
-
-                    break;
-                case 9:
-
-                    break;
-                case 10:
-
-                    break;
-                case 11:
-
-                    break;
-                case 12:
-
-                    break;
-                case 13:
-
-                    break;
-                case 14:
-
-                    break;
-                case 15:
-
-                    break;
-                case 16:
-
-                    break;
-                case 17:
-  
-                    break;
-                case 18:
-
-                    break;
-                case 19:
- 
-                    break;
-                case 20:
-
-                    break;
-                default:
-                    break;
+                strcpy(dir,"CONCEPTOS/");
+                strcat(dir,conceptos[fila]);
+                strcat(dir,".txt");
+                archivo=fopen(dir,"r");
+                if(archivo==NULL){
+                    printf("Error en la apertura del archivo\n");
                 }
+                else {
+                    while(feof(archivo)==0) {
+                        c=fgetc(archivo); //fgetc obtiene un solo caracter
+                        printf("%c",c);
+                    }
+                }
+                printf("\n");
+                fclose(archivo);
                 printf("\n\n\tPresione cualquier tecla para continuar...\n");
                 getch();
-                fila=5; // retorna a la primer fila del menu
+                fila+=5; // retorna a la primer fila del menu
             }     
         }
     } while(repetir);
+}
+void ABRIR_ARCHIVO(char titulo[50]){
+    char c;
+    archivo=fopen("CONCEPTOS/1.1 LENGUAGE DE PROGRAMACION C.txt","r");
+    if(archivo==NULL){
+        printf("Error en la apertura del archivo\n");
+    }
+    else {
+        while(feof(archivo)==0) {
+            c=fgetc(archivo); //fgetc obtiene un solo caracter
+            printf("%c",c);
+        }
+    }
+    printf("\n");
+    fclose(archivo);
 }
