@@ -196,89 +196,92 @@ void MENU_EJERCICIOS(){
         for(i=0;i<20;i++){
             printf("\t\t%s\n",ejercicios+i);
         };
-        printf("\t\t%c REGRESAR\n",174);
-        printf("\n\tUse %c o %c para desplazarse y Enter para seleccionar...\n",30,31);
+        printf("\n\tUse %c o %c para desplazarse, Enter para seleccionar o ESC para regresar.\n",30,31);
         gotoxy(14,fila); // posicion inicial
         printf("%c",26); // dibuja la flecha
         gotoxy(0,0);
         tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
-        if(tecla!=ENTER){
-            fila=RESPONDE_TECLA(tecla,fila,5,25);
+        if(tecla==ARRIBA || tecla==ABAJO){
+            fila=RESPONDE_TECLA(tecla,fila,5,24);
         } else {
-            fila-=5;
-            system("cls");
-            printf("\n\t%s\n\n",ejercicios+fila);
-            switch (fila){
-            case 0:
-                EJERCICIO_1();
-                break;
-            case 1:
-                EJERCICIO_2();
-                break;
-            case 2:
-                EJERCICIO_3();
-                break;
-            case 3:
-                EJERCICIO_4();
-                break;
-            case 4:
-                EJERCICIO_5();
-                break;
-            case 5:
-                EJERCICIO_6();
-                break;
-            case 6:
-                EJERCICIO_7();
-                break;
-            case 7:
-                EJERCICIO_8();
-                break;
-            case 8:
-                EJERCICIO_9();
-                break;
-            case 9:
-                EJERCICIO_10();
-                break;
-            case 10:
-                EJERCICIO_11();
-                break;
-            case 11:
-                EJERCICIO_12();
-                break;
-            case 12:
-                EJERCICIO_13();
-                break;
-            case 13:
-                EJERCICIO_14();
-                break;
-            case 14:
-                EJERCICIO_15();
-                break;
-            case 15:
-                EJERCICIO_16();
-                break;
-            case 16:
-                EJERCICIO_17();
-                break;
-            case 17:
-                EJERCICIO_18();
-                break;
-            case 18:
-                EJERCICIO_19();
-                break;
-            case 19:
-                EJERCICIO_20();
-                break;
-            case 20:
+            if (tecla==ESC){
                 repetir=false;
-                break;
-            default:
-                break;
-            }
-            if(fila!=20){
-            printf("\n\n\tPresione cualquier tecla para continuar...\n");
-            getch();}
-            fila=5; // retorna a la primer fila del menu
+            } else {
+                fila-=5;
+                system("cls");
+                printf("\n\t%s\n\n",ejercicios+fila);
+                switch (fila){
+                case 0:
+                    EJERCICIO_1();
+                    break;
+                case 1:
+                    EJERCICIO_2();
+                    break;
+                case 2:
+                    EJERCICIO_3();
+                    break;
+                case 3:
+                    EJERCICIO_4();
+                    break;
+                case 4:
+                    EJERCICIO_5();
+                    break;
+                case 5:
+                    EJERCICIO_6();
+                    break;
+                case 6:
+                    EJERCICIO_7();
+                    break;
+                case 7:
+                    EJERCICIO_8();
+                    break;
+                case 8:
+                    EJERCICIO_9();
+                    break;
+                case 9:
+                    EJERCICIO_10();
+                    break;
+                case 10:
+                    EJERCICIO_11();
+                    break;
+                case 11:
+                    EJERCICIO_12();
+                    break;
+                case 12:
+                    EJERCICIO_13();
+                    break;
+                case 13:
+                    EJERCICIO_14();
+                    break;
+                case 14:
+                    EJERCICIO_15();
+                    break;
+                case 15:
+                    EJERCICIO_16();
+                    break;
+                case 16:
+                    EJERCICIO_17();
+                    break;
+                case 17:
+                    EJERCICIO_18();
+                    break;
+                case 18:
+                    EJERCICIO_19();
+                    break;
+                case 19:
+                    EJERCICIO_20();
+                    break;
+                case 20:
+                    repetir=false;
+                    break;
+                default:
+                    break;
+                }
+                if(fila!=20){
+                printf("\n\n\tPresione cualquier tecla para continuar...\n");
+                getch();}
+                fila=5; // retorna a la primer fila del menu
+            }     
         }
     } while(repetir);
 }
@@ -1063,5 +1066,127 @@ void vaciar(){
         getch();
 }
 void MENU_CONCEPTOS(){
+    bool repetir=true;
+    int fila=5, tecla, i;
+    char conceptos[25][50]={
+        "1.1 LENGUAGE DE PROGRAMACION C",
+        "1.2 ESTRUCTURA GENERAL DE UN PROGRAMA",
+        "1.3 COMO INSERTAR COMENTARIOS",
+        "1.4 PALABRAS RESERVADAS",
+        "1.5 IDENTIFICADORES",
+        "1.6 TIPOS DE DATOS EN LENGUAJE C",
+        "1.7 CALIFICADORES DE DATOS",
+        "1.8 VARIABLES - DECLARACION Y EJEMPLOS",
+        "1.9 CONSTANTES - DIRECTIVA #DEFINE",
+        "1.10 SECUENCIAS DE ESCAPE",
+        "1.11 INCLUSION DE ARCHIVOS #INCLUDE",
+        "1.12 OPERADORES ARITMETICOS BASICOS",
+        "1.13 FUNCIONES printf() Y scanf()",
+        "1.14 OPERADORES RELACIONALES <, >, ==",
+        "1.15 CONDICIONALES IF, ELSEIF Y SWITCH",
+        "1.16 OPERADORES LOGICOS AND, OR, NOT",
+        "1.17 BUCLES WHILE, DO WHILE Y FOR",
+        "1.18 VARIABLES LOCALES Y GLOBALES EN C",
+        "1.19 FUNCIONES EN C",
+        "1.20 ARRAYS, ARREGLOS O CADENAS",
+        "1.21 MATRIZ BIDIMENSIONAL",
+        "1.22 PUNTEROS ¿QUE SON?",
+        "1.23 ESTRUCTURAS Y UNIONES EN C",
+        "1.24 ARCHIVOS DE TEXTO fopen(), fclose()",
+        "1.25 PILAS, COLAS, LISTAS"};
+    do
+    {
+        system("cls");
+        printf("\n\tMENU DE CONCEPTOS\n\n");
+        printf("\tSeleccione una opcion:\n\n");
+        for(i=0;i<25;i++){
+            printf("\t\t%s\n",conceptos+i);
+        };
+        printf("\n\tUse %c o %c para desplazarse, Enter para seleccionar o ESC para regresar.\n",30,31);
+        gotoxy(14,fila); // posicion inicial
+        printf("%c",26); // dibuja la flecha
+        gotoxy(0,0);
+        tecla=ESPERAR_TECLA(); // Espera la tecla arriba, abajo o enter
+        if(tecla==ARRIBA || tecla==ABAJO){
+            fila=RESPONDE_TECLA(tecla,fila,5,29);
+        } else {
+            if (tecla==ESC){
+                repetir=false;
+            } else {
+                fila-=5;
+                system("cls");
+                printf("\n\t%s\n\n",conceptos+fila);
+                switch (fila){
+                case 0:
 
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+     
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+                case 6:
+
+                    break;
+                case 7:
+
+                    break;
+                case 8:
+
+                    break;
+                case 9:
+
+                    break;
+                case 10:
+
+                    break;
+                case 11:
+
+                    break;
+                case 12:
+
+                    break;
+                case 13:
+
+                    break;
+                case 14:
+
+                    break;
+                case 15:
+
+                    break;
+                case 16:
+
+                    break;
+                case 17:
+  
+                    break;
+                case 18:
+
+                    break;
+                case 19:
+ 
+                    break;
+                case 20:
+
+                    break;
+                default:
+                    break;
+                }
+                printf("\n\n\tPresione cualquier tecla para continuar...\n");
+                getch();
+                fila=5; // retorna a la primer fila del menu
+            }     
+        }
+    } while(repetir);
 }
