@@ -1,4 +1,4 @@
 Funciones en C
 
-Las funciones son bloques de código utilizados para dividir un programa en partes más pequeñas, 
-cada una de las cuáles tendrá una tarea determinada.
+Las funciones son bloques de codigo utilizados para dividir un programa en partes mas reducidas, 
+cada una de las cuales tendra una tarea determinada.

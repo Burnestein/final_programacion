@@ -1,11 +1,12 @@
-Lenguaje de Programación C
+Lenguaje de Programacion C
 
-Es un Lenguaje de propósito general, desarrollado en 1972 por Dennis Ritchie en los Laboratorios Bell,
+Es un Lenguaje de proposito general, desarrollado en 1972 por Dennis Ritchie en los Laboratorios Bell, 
 es considerado como un lenguaje de alto nivel. 
 El lenguaje C se conoce como un lenguaje compilado. Existen dos tipos de lenguaje:
 
-	1.	Interpretados
-	2.	Compilados
+	Interpretados
 
-Los interpretados son aquellos que necesitan del código fuente para funcionar. 
-Los compilados convierten el código fuente en un fichero objeto y éste en un fichero ejecutable.
+	Compilados
+
+Los interpretados son aquellos que necesitan del codigo fuente para funcionar. 
+Los compilados convierten el codigo fuente en un fichero objeto y este en un fichero ejecutable.

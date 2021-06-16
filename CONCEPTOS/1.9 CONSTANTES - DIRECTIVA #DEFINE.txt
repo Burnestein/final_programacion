@@ -1,7 +1,7 @@
 Constantes Lenguaje en Directiva #define
 
 En C las constantes se declaran con la directiva #define, esto significa que esa constante 
-tendrá el mismo valor a lo largo de todo el programa. Para indicar al compilador que se trata 
+tendra el mismo valor a lo largo de todo el programa. Para indicar al compilador que se trata 
 de una constante, usaremos la directiva #define:
 
 	#define <identificador> <valor>

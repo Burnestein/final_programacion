@@ -1,6 +1,6 @@
 Condicionales if, else, elseif y switch
 
-Sentencia de control donde la condición es la expresión que será evaluada. 
+Sentencia de control donde la condicion es la expresion que sera evaluada. 
 Si es verdadera el extracto se ejecuta. Si es falsa el extracto es ignorado. 
 Este tipo de sentencias permiten variar el flujo del programa en base a unas 
 determinadas condiciones.

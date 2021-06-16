@@ -1,5 +1,5 @@
-Inclusión de archivos #include
+Inclusion de archivos #include
 
-En la programación en C es posible utilizar funciones que no estén incluidas 
+En la programacion en C es posible utilizar funciones que no esten incluidas 
 en el propio programa. Para ello utilizamos la directiva #include, que nos permite 
-añadir librerías o funciones que se encuentran en otros ficheros a nuestro programa.
+agregar librerias o funciones que se encuentran en otros ficheros a nuestro programa.

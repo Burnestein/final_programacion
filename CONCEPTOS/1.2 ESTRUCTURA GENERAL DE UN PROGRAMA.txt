@@ -1,8 +1,9 @@
 Estructura general de un Programa
 
-Un programa en C consta de una o más funciones, la función principal se llama main.
-Cada función debe contener: cabecera, argumentos y sentencias. Todo programa en C consta 
-de una o más funciones, una de las cuales se llama main. El programa comienza en la función main, 
-desde la cual es posible llamar a otras funciones. Cada función estará formada por la cabecera de 
-la función, compuesta por el nombre de la misma y la lista de argumentos, la declaración de las 
-variables a utilizar y la secuencia de sentencias a ejecutar.
+Un programa en C consta de una o mas funciones, la funcion principal se llama main. 
+Cada funcion debe contener: cabecera, argumentos y sentencias. 
+Todo programa en C consta de una o mas funciones, una de las cuales se llama main. 
+El programa comienza en la funcion main, desde la cual es posible llamar a otras funciones. 
+Cada funcion estara formada por la cabecera de la funcion, compuesta por el nombre de la 
+misma y la lista de argumentos, la declaracion de las variables a utilizar y la secuencia 
+de sentencias a ejecutar.

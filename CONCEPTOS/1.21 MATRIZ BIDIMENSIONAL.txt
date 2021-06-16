@@ -1,7 +1,7 @@
-Matrices Bidimensional
+Matrices Bidimensionales
 
-Una matriz es un vector de vectores o un también llamado array bidimensional. 
+Una matriz es un vector de vectores o un tambien llamado array bidimensional. 
 Una matriz bidimensional es una lista de matrices unidimensionales. 
 Una matriz es un array multidimensional. 
-Se definen igual que los vectores excepto que se requiere un índice por cada dimensión. 
-Una matriz bidimensional se podría representar gráficamente como una tabla con filas y columnas.
+Se definen igual que los vectores excepto que se requiere un indice por cada dimension. 
+Una matriz bidimensional se podria representar graficamente como una tabla con filas y columnas.

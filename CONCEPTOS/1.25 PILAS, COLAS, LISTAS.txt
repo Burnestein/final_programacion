@@ -1,11 +1,11 @@
 Pilas, colas y listas
 
-El lenguaje C proporciona mecanismos que permiten gestar memoria dinámicamente. 
-Esta función buscar un espacio de memoria libre y le asigna un puntero.
+El lenguaje C proporciona mecanismos que permiten gestar memoria dinamicamente. 
+Esta funcion buscar un espacio de memoria libre y le asigna un puntero.
 
 1.	Pilas
 Este tipo de estructuras se caracteriza porque todas las operaciones se realizan 
-en el mismo lado. Es de tipo LIFO ( Last In First Out ), el último elemento en 
+en el mismo lado. Es de tipo LIFO ( Last In First Out ), el ultimo elemento en 
 entrar es el primero en salir.
 
 2.	Colas
@@ -15,6 +15,6 @@ elemento en entrar es el primero en salir. Para gestionar la cola utilizaremos 3
 punteros ( para la pila solo eran necesarios 2 ).
 
 3.	Listas
-Este tipo de estructuras se caracteriza porque los elementos están enlazados entre sí, 
-de manera que además de las acciones habituales de insertar, extraer y visualizar 
-también podremos buscar un elemento. Para gestionar la lista utilizaremos 4 punteros.
+Este tipo de estructuras se caracteriza porque los elementos estan enlazados entre si, 
+de manera que ademas de las acciones habituales de insertar, extraer y visualizar 
+tambien podremos buscar un elemento. Para gestionar la lista utilizaremos 4 punteros.

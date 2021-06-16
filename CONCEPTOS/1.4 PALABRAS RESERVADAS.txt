@@ -1,4 +1,6 @@
 Palabras reservadas
 
-Las palabras reservadas son identificadores predefinidos que tienen un significado especial y 
-no se pueden utilizar como sintaxis en sus programas.
+Las palabras reservadas son identificadores predefinidos que tienen un significado 
+especial y no se pueden utilizar como sintaxis en sus programas.
+Existen una serie de terminos reservados, instrucciones o comandos con una finalidad 
+determinada, que no podemos utilizar como identificadores.

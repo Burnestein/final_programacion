@@ -1,13 +1,13 @@
 Variables Locales y Globales en C
 
-Una variable local es aquella cuyo ámbito se restringe a la función que se declaró. Una variable global 
-se define fuera del cuerpo de cualquier función.
+Una variable local es aquella cuyo ambito se restringe a la funcion que se declaro. Una variable global 
+se define fuera del cuerpo de cualquier funcion.
 
 1.	Variables Globales
 Las variables permanecen activas durante todo el programa. 
-Se crean al iniciarse éste y se destruyen de la memoria al finalizar. 
-Pueden ser utilizadas en cualquier función.
+Se crean al iniciarse este y se destruyen de la memoria al finalizar. 
+Pueden ser utilizadas en cualquier funcion.
 
 2.	Variables Locales
-Las variables son creadas cuando el programa llega a la función en la que 
-están definidas. Al finalizar la función desaparecen de la memoria.
+Las variables son creadas cuando el programa llega a la funcion en la que 
+estan definidas. Al finalizar la funcion desaparecen de la memoria.

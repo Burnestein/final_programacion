@@ -11,7 +11,7 @@ Carrera: Ingeniería en Computación, 1er Semestre
 #include <stdlib.h>
 #include <windows.h>
 #include <conio.h>
-#include <locale.h>
+//#include <locale.h>
 #define ARRIBA 72
 #define ABAJO 80
 #define ENTER 13
@@ -92,7 +92,7 @@ void EJERCICIO_20();
 FILE *archivo;
 
 void main(void){
-    setlocale(LC_CTYPE,"Spanish");
+    //setlocale(LC_CTYPE,"Spanish");
     MENU_PRINCIPAL();
     system("cls");
 }
