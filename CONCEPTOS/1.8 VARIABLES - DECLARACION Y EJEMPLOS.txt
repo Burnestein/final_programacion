@@ -1,14 +1,14 @@
-Variables en Lenguaje Declaración y ejemplos
+Variables en Lenguaje Declaracion y ejemplos
 
 Una variable es un tipo de dato, referenciado mediante un identificador (que es el nombre de la variable). 
-Su contenido podrá ser modificado a lo largo del programa.
-Las variables pueden ser de dos tipos según el lugar en que las declaremos: globales o locales.
+Su contenido podra ser modificado a lo largo del programa.
+Las variables pueden ser de dos tipos segun el lugar en que las declaremos: globales o locales.
 
 1.	La variable global se declara antes de la main(). Puede ser utilizada en cualquier parte del 
-programa y se destruye al finalizar éste.
+programa y se destruye al finalizar este.
 
-2.	La variable local se declara después de la main(), en la función en que vaya a ser utilizada. 
-Sólo existe dentro de la función en que se declara y se destruye al finalizar dicha función.
+2.	La variable local se declara despues de la main(), en la funcion en que vaya a ser utilizada. 
+Solo existe dentro de la funcion en que se declara y se destruye al finalizar dicha funcion.
 
 Ejemplo
 	/* Uso de las variables */

@@ -1,7 +1,7 @@
-Punteros ¿Qué son?
+Punteros, Que son
 
-Un puntero es una variable que contiene la dirección de memoria de otra variable. 
-Se usan para pasar información entre una función y puntos de llamada.
-Los punteros permiten código más compacto y eficiente; utilizándolos en forma ordenada 
-dan gran flexibilidad a la programación. La dirección de memoria de una variable se 
+Un puntero es una variable que contiene la direccion de memoria de otra variable. 
+Se usan para pasar informacion entre una funcion y puntos de llamada.
+Los punteros permiten codigo mas compacto y eficiente; utilizandolos en forma ordenada 
+dan gran flexibilidad a la programacion. La direccion de memoria de una variable se 
 obtiene con el operador unario &.

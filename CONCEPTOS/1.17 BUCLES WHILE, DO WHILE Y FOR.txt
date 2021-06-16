@@ -1,6 +1,6 @@
 Bucles While, Do While y For
 
-Son estructuras de repetición que permiten realizar tareas recurrentes y se usan para el 
-control de flujo de un proceso un número determinado de veces. Los bucles son estructuras 
-que permiten ejecutar partes del código de forma repetida mientras se cumpla una condición. 
-Esta condición puede ser simple o compuesta de otras condiciones unidas por operadores lógicos.
+Son estructuras de repeticion que permiten realizar tareas recurrentes y se usan para el 
+control de flujo de un proceso un numero determinado de veces. Los bucles son estructuras 
+que permiten ejecutar partes del codigo de forma repetida mientras se cumpla una condicion. 
+Esta condicion puede ser simple o compuesta de otras condiciones unidas por operadores logicos.

@@ -1,6 +1,6 @@
 Calificadores de Datos
 
 Calificadores de Datos en C: signed, unsigned, short y long
-Los calificadores de tipo son las palabras clave que describen 
-semánticas adicionales sobre un tipo. Son una parte integral de 
-las firmas de tipo.
+
+Los calificadores de tipo son las palabras clave que describen semanticas 
+adicionales sobre un tipo. Son una parte integral de las firmas de tipo.
